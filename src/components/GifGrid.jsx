@@ -13,9 +13,11 @@ const GifGrid = ({ category }) => {
 			{loading && <Spinner />}
 
 			<div className="card-grid">
-				{imgs.map((img) => (
-					<GifGridItems {...img} key={img.id} />
-				))}
+				{imgs.length !== 0 ? (
+					imgs.map((img) => <GifGridItems {...img} key={img.id} />)
+				) : (
+					<p>No hay resultados</p>
+				)}
 			</div>
 		</>
 	);

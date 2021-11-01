@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getGifs } from "../helpers/getGif";
 
+// CustomHook
 export const useFetchGif = (category) => {
 	const [state, setState] = useState({
 		data: [],
@@ -8,12 +9,9 @@ export const useFetchGif = (category) => {
 	});
 
 	useEffect(() => {
-		getGifs(category).then((imgs) =>
-			setState({
-				data: imgs,
-				loading: false,
-			})
-		);
+		getGifs(category).then((img) => {
+			setState({ data: img, loading: false });
+		});
 	}, [category]);
 	return state;
 };

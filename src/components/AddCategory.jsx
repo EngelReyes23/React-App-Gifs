@@ -13,12 +13,11 @@ const AddCategory = ({ setCategories }) => {
 	//
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// Actualiza el inputValue
 
 		// Verifica que inputValue no esté vacío
-		if (inputValue === "") alert("Campo Requerido");
-		else {
+		if (inputValue !== "") {
 			setCategories((categories) => [inputValue, ...categories]);
+			setInputValue("");
 		}
 	};
 
@@ -27,7 +26,7 @@ const AddCategory = ({ setCategories }) => {
 			<input
 				type="text"
 				onChange={handleInputChange}
-				placeholder="Busca Algo..."
+				placeholder="Busca Algo"
 				value={inputValue}
 			/>
 		</form>
